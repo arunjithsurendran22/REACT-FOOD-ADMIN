@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const AdminHeader = () => {
   return (
-    <div className="bg-stone-900 h-16 px-4 flex justify-between items-center">
+    <div className="bg-backgroundBlack h-16 px-4 flex justify-between items-center border-b border-borderColor">
       <div className="relative">
         <IoIosSearch
           fontSize={20}

@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import { MdOutlineDeliveryDining } from "react-icons/md";
-import {DASHBOARD_SIDEBAR_LINKS,DASHBOARD_SIDEBAR_BOTTOM_LINKS } from "../lib/navigation";
+import { DASHBOARD_SIDEBAR_LINKS, DASHBOARD_SIDEBAR_BOTTOM_LINKS } from "../lib/navigation";
 
 const linkClasses =
   "flex items-center gap-5 my-4 font-light px-5 py-2 hover:bg-slate-700 hover:no-underline active:bg-slate-900 rounded-md text-base hover:font-bold";
 
 const AdminSidebar = () => {
   return (
-    <div className="bg-sidebar w-60 p-3 flex flex-col text-white  border-r shadow-md ">
-      <div className="flex">
-        <MdOutlineDeliveryDining className="text-5xl " />
-        <Link to="/">
-          <h1 className="font-bold m-3 ">Admin Dashboard</h1>
+    <div className="w-60 p-3 flex flex-col text-white bg-backgroundBlack  border-r border-borderColor shadow-md">
+      <div className="flex items-center">
+        <MdOutlineDeliveryDining className="text-5xl" />
+        <Link to="/" className="font-bold m-3">
+          Admin Dashboard
         </Link>
       </div>
       <div className="flex-1 my-6">
@@ -19,7 +19,7 @@ const AdminSidebar = () => {
           <SidebarLink key={item.key} item={item} />
         ))}
       </div>
-      <div className="flex flex-col  border-t-2">
+      <div className="flex flex-col">
         {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((item) => (
           <SidebarLink key={item.key} item={item} />
         ))}

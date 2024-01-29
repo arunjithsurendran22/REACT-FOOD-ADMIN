@@ -4,7 +4,7 @@ import AdminHeader from "./AdminHeader";
 
 const AdminLayout = () => {
   return (
-    <div className="flex flex-row bg-neutral-200 h-screen w-screen overflow-hidden">
+    <div className="flex flex-row  h-screen w-screen overflow-hidden bg-backgroundLayout">
       <AdminSidebar />
       <div className="flex-1  overflow-y-auto">
         <AdminHeader />

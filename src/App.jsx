@@ -7,6 +7,7 @@ import AddCategories from "./pages/AddCategories";
 import AdminProfile from "./pages/AdminProfile";
 import CategoryList from "./pages/CategoryList"
 import VendorProfileDetails from"./pages/VendorProfileDetails"
+import Customers from "./pages/Customers";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/admin-profile" element={<AdminProfile />} />
           <Route path="/add-category" element={<AddCategories/>}/>
           <Route path="/vendors-profile-get" element={<VendorProfileDetails/>}/>
+          <Route path="/customers-profile-get" element={<Customers/>}/>
         </Route>
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/register" element={<AdminRegister />} />

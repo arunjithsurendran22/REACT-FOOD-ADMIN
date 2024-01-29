@@ -4,6 +4,7 @@ import { BiSupport } from "react-icons/bi";
 import { MdLogout } from "react-icons/md";
 import { MdOutlineFastfood } from "react-icons/md";
 import { MdRestaurant } from "react-icons/md";
+import { FaUsers } from "react-icons/fa6";
 
 export const DASHBOARD_SIDEBAR_LINKS = [
   {
@@ -23,6 +24,12 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     label: "Restaurants",
     path: "/vendors-profile-get",
     icon: <MdRestaurant />,
+  },
+  {
+    key: "Customers",
+    label: "customers",
+    path: "/customers-profile-get",
+    icon: <FaUsers />,
   },
 ];
 

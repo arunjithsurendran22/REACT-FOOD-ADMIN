@@ -43,7 +43,7 @@ const AddFoodCategory = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-8 p-8 border rounded-md shadow-md">
+    <div className="max-w-2xl mx-auto mt-8 p-8 border border-borderColor text-white rounded-md shadow-md bg-backgroundBlack">
       <h1 className="text-2xl font-bold mb-4">Add Food Category</h1>
 
       {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
@@ -99,7 +99,7 @@ const AddFoodCategory = () => {
             name="image"
             accept="image/*"
             onChange={handleFileChange}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border border-borderColor rounded-md"
           />
         </div>
 

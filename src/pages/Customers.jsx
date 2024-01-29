@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import api from "../components/authorization/api";
 import BasicTable from "../components/shared/table/BasicTable";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-const VendorProfileDetails = () => {
-  const [data, setData] = useState([]);
+const Customers = () => {
+  const [customersData, setCustomersData] = useState([]);
 
-  const TABLE_HEAD = [
+  const CUSTOMERS = [
     {
       Header: "NAME",
       accessor: "name",
@@ -40,24 +41,22 @@ const VendorProfileDetails = () => {
   ];
 
   useEffect(() => {
-    const fetchVendorDetails = async () => {
+    const fetchAllCustomers = async () => {
       try {
-        const response = await api.get("/profile/vendor-profile-get");
-        console.log(response.data.vendorData);
-        setData(response.data.vendorData);
+        const response = await api.get("/profile/user-profile/get");
+        setCustomersData(response.data.customers);
       } catch (error) {
-        console.error("Error fetching vendor details:", error);
+        toast.error("Failed to fetch all customers data");
+        console.log("Failed to fetch all customers data");
       }
     };
-
-    fetchVendorDetails();
+    fetchAllCustomers();
   }, []);
-
   return (
     <div>
-      <BasicTable columnsProps={TABLE_HEAD} dataProps={data} />
+      <BasicTable columnsProps={CUSTOMERS} dataProps={customersData} />
     </div>
   );
 };
 
-export default VendorProfileDetails;
+export default Customers;
