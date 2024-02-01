@@ -8,6 +8,9 @@ import AdminProfile from "./pages/AdminProfile";
 import CategoryList from "./pages/CategoryList"
 import VendorProfileDetails from"./pages/VendorProfileDetails"
 import Customers from "./pages/Customers";
+import Coupon from "./pages/Coupon";
+import AddCoupon from "./components/shared/coupon/AddCoupon";
+import EditCoupon from "./components/shared/coupon/EditCoupon";
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
           <Route path="/add-category" element={<AddCategories/>}/>
           <Route path="/vendors-profile-get" element={<VendorProfileDetails/>}/>
           <Route path="/customers-profile-get" element={<Customers/>}/>
+          <Route path="/coupons" element= {<Coupon/>}/>
+          <Route path="/add-coupon" element={<AddCoupon/>}/>
+          <Route path="/edit-coupon/:couponId" element={<EditCoupon/>}/>
         </Route>
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/register" element={<AdminRegister />} />
