@@ -65,7 +65,7 @@ const AddFoodCategory = () => {
             name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border rounded-md text-black"
           />
         </div>
 
@@ -82,7 +82,7 @@ const AddFoodCategory = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows="3"
-            className="mt-1 p-2 w-full border rounded-md"
+            className="mt-1 p-2 w-full border rounded-md text-black"
           ></textarea>
         </div>
 
@@ -99,7 +99,7 @@ const AddFoodCategory = () => {
             name="image"
             accept="image/*"
             onChange={handleFileChange}
-            className="mt-1 p-2 w-full border border-borderColor rounded-md"
+            className="mt-1 p-2 w-full border border-borderColor rounded-md "
           />
         </div>
 
