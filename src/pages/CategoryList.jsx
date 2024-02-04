@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import BasicTable from "../components/shared/table/BasicTable";
 
-
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
 
@@ -19,7 +18,12 @@ const CategoryList = () => {
           <img
             src={value}
             alt="User"
-            style={{ width: "50px", height: "50px", borderRadius: "100px" ,objectFit:"fill"}}
+            style={{
+              width: "50px",
+              height: "50px",
+              borderRadius: "100px",
+              objectFit: "fill",
+            }}
           />
         ) : null,
     },
@@ -55,7 +59,7 @@ const CategoryList = () => {
     // Fetch food categories from the backend when the component mounts
     const fetchCategories = async () => {
       try {
-        const response = await api.get("/products/food-categories");
+        const response = await api.get("/products/food-categories/get");
         setCategories(response.data.categories);
       } catch (error) {
         toast.error("failed to fetch categories");
@@ -66,10 +70,31 @@ const CategoryList = () => {
     fetchCategories();
   }, []);
 
+  const handleDelete = async (categoryId) => {
+    try {
+      // Send a DELETE request to your backend API
+      await api.delete(`/products/food-category/delete/${categoryId}`);
+
+      // Update the state after successful deletion
+      setCategories((prevCategories) =>
+        prevCategories.filter((category) => category._id !== categoryId)
+      );
+
+      toast.success("Category deleted successfully");
+    } catch (error) {
+      toast.error("Failed to delete category");
+      console.error("Error deleting category:", error);
+    }
+  };
+
   return (
     <div className="">
       <div className="flex justify-end mx-20 my-2">
-        <Link to="/add-category"><button className="text-white border border-borderColor p-2 rounded-lg font-bold">ADD CATEGORIES</button></Link>
+        <Link to="/add-category">
+          <button className="text-white border border-borderColor p-2 rounded-lg font-bold">
+            ADD CATEGORIES
+          </button>
+        </Link>
       </div>
       <BasicTable dataProps={categories} columnsProps={CATEGORYLIST} />
     </div>

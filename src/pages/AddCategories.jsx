@@ -26,7 +26,6 @@ const AddFoodCategory = () => {
         "/products/add-on-category/create",
         formData
       );
-      console.log(response);
       if (response.status === 201) {
         setSuccessMessage("Food category added successfully");
         // Clear the form fields after successful submission
@@ -66,6 +65,7 @@ const AddFoodCategory = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="mt-1 p-2 w-full border rounded-md text-black"
+            required
           />
         </div>
 
@@ -83,6 +83,7 @@ const AddFoodCategory = () => {
             onChange={(e) => setDescription(e.target.value)}
             rows="3"
             className="mt-1 p-2 w-full border rounded-md text-black"
+            required
           ></textarea>
         </div>
 
@@ -100,6 +101,7 @@ const AddFoodCategory = () => {
             accept="image/*"
             onChange={handleFileChange}
             className="mt-1 p-2 w-full border border-borderColor rounded-md "
+            required
           />
         </div>
 

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import api from "../components/authorization/api";
 import BasicTable from "../components/shared/table/BasicTable";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const VendorProfileDetails = () => {
   const [data, setData] = useState([]);
@@ -43,7 +44,6 @@ const VendorProfileDetails = () => {
     const fetchVendorDetails = async () => {
       try {
         const response = await api.get("/profile/vendor-profile-get");
-        console.log(response.data.vendorData);
         setData(response.data.vendorData);
       } catch (error) {
         console.error("Error fetching vendor details:", error);
@@ -52,6 +52,17 @@ const VendorProfileDetails = () => {
 
     fetchVendorDetails();
   }, []);
+
+  const handleDelete = async (vendorId) => {
+    try {
+      await api.delete(`/profile/vendor-profile-delete/${vendorId}`);
+      toast.success("successfully deleted");
+      const response = await api.get("/profile/vendor-profile-get");
+      setData(response.data.vendorData);
+    } catch (error) {
+      console.log("failed to delete");
+    }
+  };
 
   return (
     <div>
