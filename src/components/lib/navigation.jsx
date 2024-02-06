@@ -1,12 +1,12 @@
 import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSettings } from "react-icons/md";
 import { BiSupport } from "react-icons/bi";
-import { MdLogout } from "react-icons/md";
+
 import { MdOutlineFastfood } from "react-icons/md";
 import { MdRestaurant } from "react-icons/md";
 import { FaUsers } from "react-icons/fa6";
 import { BiSolidOffer } from "react-icons/bi";
-
+import { FaList } from "react-icons/fa6";
 
 export const DASHBOARD_SIDEBAR_LINKS = [
   {
@@ -39,6 +39,12 @@ export const DASHBOARD_SIDEBAR_LINKS = [
     path: "/coupons",
     icon: <BiSolidOffer />,
   },
+  {
+    key: "orders",
+    label: "Orders",
+    path: "/orders",
+    icon: <FaList />,
+  },
 ];
 
 export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
@@ -54,10 +60,5 @@ export const DASHBOARD_SIDEBAR_BOTTOM_LINKS = [
     path: "/support",
     icon: <BiSupport />,
   },
-  {
-    key: "logout",
-    label: "Logout",
-    path: "/logout",
-    icon: <MdLogout />,
-  },
+  
 ];

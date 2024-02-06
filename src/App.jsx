@@ -11,6 +11,7 @@ import Customers from "./pages/Customers";
 import Coupon from "./pages/Coupon";
 import AddCoupon from "./components/shared/coupon/AddCoupon";
 import EditCoupon from "./components/shared/coupon/EditCoupon";
+import Orders from "./pages/Orders";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/coupons" element= {<Coupon/>}/>
           <Route path="/add-coupon" element={<AddCoupon/>}/>
           <Route path="/edit-coupon/:couponId" element={<EditCoupon/>}/>
+          <Route path="/orders" element={<Orders/>}/>
         </Route>
         <Route path="/login" element={<AdminLogin />} />
         <Route path="/register" element={<AdminRegister />} />

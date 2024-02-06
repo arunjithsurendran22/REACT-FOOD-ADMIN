@@ -21,7 +21,6 @@ function AdminLogin() {
     await axios
       .post("http://localhost:3000/api/v1/admin/profile/login", formData)
       .then((response) => {
-        console.log(response);
         toast.success("Login Successfully");
         handleLoginToken(response.data);
         console.log("Login successful", response.data);
