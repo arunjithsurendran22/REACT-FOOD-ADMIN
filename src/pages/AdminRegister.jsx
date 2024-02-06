@@ -1,6 +1,6 @@
 import { Link ,useNavigate} from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
+import api from "../components/authorization/api";
 
 function AdminRegister() {
   const [formData, setFormData] = useState({});
@@ -14,8 +14,8 @@ function AdminRegister() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/v1/admin/profile/register",
+      const response = await api.post(
+        "/profile/register",
         formData
       );
       console.log(response);
