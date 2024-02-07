@@ -4,6 +4,7 @@ import api from "../../authorization/api";
 import BasicTable from "../table/BasicTable";
 import { Link } from "react-router-dom";
 import AddCouponModal from "./AddCouponModal";
+import EditCouponModal from "./EditCouponModal";
 
 
 const ListCoupon = () => {
@@ -95,6 +96,7 @@ const ListCoupon = () => {
           ADD COUPON
         </button>
         <AddCouponModal isOpen={isModalOpen} onClose={handleModalClose} />
+
       </div>
       <div>
         <BasicTable columnsProps={COUPONHEADER} dataProps={coupon} />

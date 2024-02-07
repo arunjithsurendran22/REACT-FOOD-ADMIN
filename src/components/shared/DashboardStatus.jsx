@@ -17,7 +17,7 @@ const DashboardStatus = () => {
         const response = await api.get("/dashboard/status");
         console.log(response.data);
         setCustomerCount(response.data.customerCount);
-        setOrderCount(response.data.orderCount);
+        setOrderCount(response.data.totalOrders);
       } catch (error) {
         toast.error("failed to get status");
         console.log("failed to get status");
