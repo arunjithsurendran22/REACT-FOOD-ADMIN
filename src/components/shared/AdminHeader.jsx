@@ -2,9 +2,18 @@ import { IoIosSearch } from "react-icons/io";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 
-const AdminHeader = () => {
+const AdminHeader = ({showSidebar, setShowSidebar}) => {
   return (
     <div className="bg-backgroundBlack h-16 px-4 flex justify-between items-center border-b border-borderColor">
+      {showSidebar ? (
+        <button onClick={() => setShowSidebar(false)} className="text-white">
+          ☰
+        </button>
+      ) : (
+        <button onClick={() => setShowSidebar(true)} className="text-white">
+          ☰
+        </button>
+      )}
       <div className="relative">
         <IoIosSearch
           fontSize={20}
