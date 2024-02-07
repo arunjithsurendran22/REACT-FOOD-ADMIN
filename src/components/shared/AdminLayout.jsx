@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";
 import AdminHeader from "./AdminHeader";
-import { useEffect } from "react";
+import { useEffect ,useState } from "react";
 
 const AdminLayout = () => {
   const [showSidebar, setShowSidebar] = useState(window.innerWidth > 640);
