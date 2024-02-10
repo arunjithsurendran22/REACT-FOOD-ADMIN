@@ -19,19 +19,26 @@ function AdminLogin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await api
-      .post("/profile/login", formData)
-      .then((response) => {
+    try {
+      const response = await api.post("/profile/login", formData);
+      if (response && response.data) {
         toast.success("Login Successfully");
         handleLoginToken(response.data);
         console.log("Login successful", response.data);
         navigate("/");
-      })
-      .catch((error) => {
-        navigate("/login");
+      } else {
+        toast.error("Login failed. No data received from the server.");
+      }
+    } catch (error) {
+      if (error.response && error.response.data) {
         console.log("Login failed", error.response.data);
-        toast.error("Login failed");
-      });
+        toast.error("Login failed: " + error.response.data.message);
+      } else {
+        console.error("Login failed", error);
+        toast.error("Login failed. Please try again later.");
+      }
+      navigate("/login");
+    }
   };
 
   return (
