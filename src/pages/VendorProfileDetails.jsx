@@ -23,17 +23,15 @@ const VendorProfileDetails = () => {
     {
       Header: "ACTIONS",
       Cell: ({ row }) => (
-        <div className="flex justify-between w-40 ">
-          <Link to={`/edit-product/${row.original._id}`}>
-            <button className="bg-slate-700 text-white w-16 py-1 rounded-lg font-bold italic shadow hover:bg-black hover:border border-borderColor">
-              EDIT
-            </button>
-          </Link>
+        <div className="flex justify-between w-40">
+         
           <button
-            onClick={() => handleDelete(row.original._id)}
-            className="bg-red-500 text-white w-16 rounded-lg font-bold italic shadow hover:bg-red-700"
+            onClick={() => handleBlockOrUnblock(row.original._id)}
+            className={`${
+              row.original.allow === "block" ? "bg-red-700" : "bg-green-500"
+            } text-white w-20 h-8 rounded-lg font-semibold text-sm italic shadow hover:bg-red-900`}
           >
-            DELETE
+            {row.original.allow === "block" ? "UNBLOCK" : "BLOCK"}
           </button>
         </div>
       ),
@@ -53,14 +51,16 @@ const VendorProfileDetails = () => {
     fetchVendorDetails();
   }, []);
 
-  const handleDelete = async (vendorId) => {
+  const handleBlockOrUnblock = async (vendorId) => {
     try {
-      await api.delete(`/profile/vendor-profile-delete/${vendorId}`);
-      toast.success("successfully deleted");
+      const vendor = data.find((vendor) => vendor._id === vendorId);
+      const updatedAllow = vendor.allow === "block" ? "unblock" : "block";
+      await api.put(`/profile/block-or-unblock-vendor/${vendorId}`, { allow: updatedAllow });
+      toast.success(`Vendor ${updatedAllow === "block" ? "blocked" : "unblocked"} successfully`);
       const response = await api.get("/profile/vendor-profile-get");
       setData(response.data.vendorData);
     } catch (error) {
-      console.log("failed to delete");
+      console.log("failed to update vendor");
     }
   };
 
