@@ -15,7 +15,6 @@ const DashboardStatus = () => {
     const fetchDashboardStatus = async () => {
       try {
         const response = await api.get("/dashboard/status");
-        console.log(response.data);
         setCustomerCount(response.data.customerCount);
         setOrderCount(response.data.totalOrders);
       } catch (error) {
@@ -27,7 +26,7 @@ const DashboardStatus = () => {
   }, []);
 
   return (
-    <div className="flex gap-5 m-9">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 container mx-auto mt-10 mb-5">
       <div className="bg-neutral-300 p-4 flex-1  flex items-center rounded-md h-20">
         <IoBagHandleOutline size={40} />
         <div className="flex flex-col mx-8">

@@ -91,7 +91,7 @@ const CategoryList = () => {
     <div className="">
       <div className="flex justify-end mx-20 my-2">
         <Link to="/add-category">
-          <button className="text-white border border-borderColor p-2 rounded-lg font-bold">
+          <button className="text-white border border-borderColor p-1 rounded-lg font-bold">
             ADD CATEGORIES
           </button>
         </Link>

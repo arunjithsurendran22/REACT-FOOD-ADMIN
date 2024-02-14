@@ -30,21 +30,25 @@ const Orders = () => {
       accessor: "status",
     },
     {
-      Header: " CAREATED AT",
+      Header: " CREATED AT",
       accessor: "createdAt",
     },
   ];
   useEffect(() => {
-    const fetchAllorders = async () => {
+    const fetchAllOrders = async () => {
       try {
         const response = await api.get("/products/orders-list/get");
-        console.log(response.data);
-        setOrders(response.data);
+        // Format the createdAt date
+        const formattedOrders = response.data.map(order => ({
+          ...order,
+          createdAt: new Date(order.createdAt).toLocaleString(), // Change the format as needed
+        }));
+        setOrders(formattedOrders);
       } catch (error) {
-        console.log("failed to get orders", error);
+        console.log("Failed to get orders", error);
       }
     };
-    fetchAllorders();
+    fetchAllOrders();
   }, []);
   return (
     <div>
