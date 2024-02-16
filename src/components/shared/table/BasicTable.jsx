@@ -42,7 +42,7 @@ const BasicTable = ({ columnsProps, dataProps }) => {
   const { globalFilter, pageIndex } = state;
 
   return (
-    <div className="shadow-lg p-4 mx-20 my-10 border border-borderColor rounded-md bg-backgroundBlack overflow-x-auto text-white ">
+    <div className="shadow-lg p-4 md:mx-20 my-10 border border-borderColor rounded-md bg-backgroundBlack overflow-x-auto text-white ">
       <GloabalFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <table {...getTableProps} className="w-full mt-4 table-auto ">
         <thead className="bg-backgroundBlack ">
